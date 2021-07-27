@@ -3,5 +3,8 @@
 <h1>主要スタック</h1>
 <p>React.js(NextJS)</p>
 <p>Firebase</p>
-<p>CSS(material-ui)</p>
+<p>CSS(Materialize)</p>
 
+<h1>始めかた</h1>
+<p>yarn install or yarn</p>
+<p>yarn dev</p>
