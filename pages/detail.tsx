@@ -1,8 +1,8 @@
 import React from "react";
-
+import { Layout } from "components/layout";
 export default function detail() {
   return (
-    <>
+    <Layout>
       <div className="row">
         <div className="col s12 m7">
           <div className="card">
@@ -28,6 +28,6 @@ export default function detail() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
