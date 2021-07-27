@@ -1,3 +1,4 @@
+import Link from "next/link";
 export const Footer = () => (
   <footer className="page-footer">
     <div className="container">
@@ -8,14 +9,14 @@ export const Footer = () => (
         <div className="col l4 offset-l2 s12">
           <ul>
             <li>
-              <a className="grey-text text-lighten-3" href="index.html">
-                質問一覧
-              </a>
+              <Link href="/">
+                <a className="grey-text text-lighten-3">質問一覧</a>
+              </Link>
             </li>
             <li>
-              <a className="grey-text text-lighten-3" href="register.html">
-                質問作成
-              </a>
+              <Link href="/register">
+                <a className="grey-text text-lighten-3">質問作成</a>
+              </Link>
             </li>
           </ul>
         </div>
