@@ -49,7 +49,7 @@ export default function Home() {
         />
       </div>
       <div className="text-center my-10">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-pink-5 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
           もっと見る
         </button>
       </div>
