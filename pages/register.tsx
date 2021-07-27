@@ -1,6 +1,7 @@
 import { Layout } from "./components/layout";
 import firebase from "./lib/firebase";
-
+import "firebase/auth";
+import "firebase/firestore";
 import { useState } from "react";
 export type firebasePostContents = {
   name: string;
@@ -12,7 +13,6 @@ export default function Home() {
   const [body, setBody] = useState("");
 
   const handleOk = () => {
-    alert("hoe");
     const boardContents: firebasePostContents = {
       name,
       body,
