@@ -4,7 +4,7 @@ import fb from "./lib/firebase";
 import firebase from "firebase";
 
 import { useState, useEffect } from "react";
-export default function Home() {
+export default function Index() {
   const [list, setList] = useState<firebase.firestore.DocumentData>([]);
   let postList = [];
 

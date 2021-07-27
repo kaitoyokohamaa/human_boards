@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 export const Footer = () => (
   <footer className="page-footer">
     <div className="container">

@@ -1,5 +1,6 @@
 import { VFC } from "react";
 import Link from "next/link";
+import React from "react";
 type Props = {
   votes: number;
   comments: number;
