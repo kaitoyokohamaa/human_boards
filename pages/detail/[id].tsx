@@ -108,9 +108,6 @@ export default function Id({ lists, id }) {
           <Button key="back" onClick={() => setModalVisible(false)}>
             キャンセル
           </Button>,
-          <Button key="submit" type="default" onClick={handleOk}>
-            投稿する
-          </Button>,
         ]}
       >
         <div className="m-auto max-w-md py-14 px-8 bg-white shadow-lg rounded-lg my-20 w-full">
@@ -131,7 +128,7 @@ export default function Id({ lists, id }) {
               className="materialize-textarea"
               onChange={(e) => setBody(e.target.value)}
             ></textarea>
-            <label className="active">質問内容（しつもんないよう）</label>
+            <label className="active">回答内容（かいとうないよう）</label>
           </div>
 
           <div className="text-center my-10">
