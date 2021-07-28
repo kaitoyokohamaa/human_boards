@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { MdSentimentVerySatisfied } from "react-icons/md";
+
 export type firebasePostContents = {
   name: string;
   body: string;
