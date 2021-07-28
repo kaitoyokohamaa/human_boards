@@ -55,7 +55,7 @@ export default function Index() {
             })}
       </div>
       <div className="text-center my-10">
-        {!isMore && (
+        {!isMore && lists?.length > 6 && (
           <button
             className="bg-pink-5 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => setIsmore(true)}
@@ -65,7 +65,7 @@ export default function Index() {
         )}
       </div>
       <div className="fixed bottom-10 right-10 sp:block md:hidden">
-        <button className="bg-pink-5 hover:bg-pink-700 text-white font-bold py-8 px-8 rounded">
+        <button className="bg-black-500 hover:bg-pink-700 text-white font-bold py-8 px-8 rounded">
           <Link href="/register">
             <a className="text-white">さくせい</a>
           </Link>

@@ -5,7 +5,7 @@ export const Header = () => (
     <nav>
       <div className="nav-wrapper">
         <Link href="/">
-          <a className="brand-logo">子どもの人権</a>
+          <a className="brand-logo">子どもの権利</a>
         </Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
