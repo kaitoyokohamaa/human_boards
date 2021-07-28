@@ -1,10 +1,10 @@
-import { Card } from "./components/card";
-import { Layout } from "./components/layout";
-import fb from "./lib/firebase";
+import { Card } from "/components/card";
+import { Layout } from "/components/layout";
+import fb from "/lib/firebase";
 import firebase from "firebase";
 
 import { useState, useEffect } from "react";
-export default function Home() {
+export default function Index() {
   const [list, setList] = useState<firebase.firestore.DocumentData>([]);
   let postList = [];
 

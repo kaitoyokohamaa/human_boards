@@ -1,5 +1,5 @@
-import { Layout } from "./components/layout";
-import firebase from "./lib/firebase";
+import { Layout } from "/components/layout";
+import firebase from "/lib/firebase";
 import "firebase/auth";
 import "firebase/firestore";
 import { useState } from "react";

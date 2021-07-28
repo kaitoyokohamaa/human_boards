@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import "firebase/firestore";
 import "firebase/auth";
-
+import React from "react";
 const initalFirebase = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_DOMAIN,
