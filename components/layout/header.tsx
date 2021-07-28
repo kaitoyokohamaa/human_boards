@@ -10,12 +10,12 @@ export const Header = () => (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
             <Link href="/">
-              <a>質問一覧</a>
+              <a>しつもんいちらん</a>
             </Link>
           </li>
           <li>
             <Link href="/register">
-              <a>質問作成</a>
+              <a>しつもんさくせい</a>
             </Link>
           </li>
         </ul>

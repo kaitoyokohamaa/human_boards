@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 
 export type firebasePostContents = {
   name: string;
-  bad: number;
-  good: number;
   body: string;
   createdAt: firebase.firestore.Timestamp;
 };
@@ -21,8 +19,6 @@ export default function Home() {
       name,
       body,
       createdAt: firebase.firestore.Timestamp.now(),
-      bad: 0,
-      good: 0,
     };
     if (name && body) {
       fb.firestore().collection("board").add(boardContents);
@@ -36,7 +32,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <h5 className="text-center font-bold py-14">コメント</h5>
+      <h5 className="text-center font-bold py-14">返信する</h5>
       <div className="m-auto max-w-md py-14 px-8 bg-white shadow-lg rounded-lg my-20 w-9/12">
         <div className="input-field ">
           <input
