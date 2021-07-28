@@ -24,7 +24,7 @@ export default function Index() {
       <h2 className="text-center font-bold">質問一覧</h2>
       <div className="flex flex-wrap m-auto w-full justify-center gap-4 ">
         {list.length &&
-          list.map((res, i) => {
+          list.slice(0, 6).map((res, i) => {
             return (
               <Card
                 key={i}

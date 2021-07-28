@@ -4,6 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { MdSentimentVerySatisfied } from "react-icons/md";
 export type firebasePostContents = {
   name: string;
   body: string;
@@ -55,7 +56,7 @@ export default function Home() {
         </div>
         <div className="text-center my-10">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-pink-5 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => handleOk()}
           >
             投稿する
