@@ -34,7 +34,7 @@ export default function Id({ lists }) {
       <div className="h-screen m-auto w-9/12 mt-20">
         <div className="card md:p-20">
           <div className="card-content">
-            <p>{lists[0].body}</p>
+            <p>{lists && lists[0].body}</p>
           </div>
           <div className="m-auto flex">
             <div className="card-action">
