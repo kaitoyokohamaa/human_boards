@@ -15,7 +15,7 @@ export default function Index() {
       .orderBy("createdAt", "desc")
       .onSnapshot((res) => {
         res.forEach((t) => {
-          postList.push(t.data());
+          postList.push([t.data(), { id: t.id }]);
         });
         setList(postList);
       });
@@ -23,14 +23,30 @@ export default function Index() {
 
   return (
     <Layout>
-      <h2 className="text-center font-bold">しつもん</h2>
-      <div className="flex flex-wrap m-auto w-full justify-center gap-4 ">
+      <h5 className="text-center font-bold py-14">しつもんいちらん</h5>
+      <div className="md:grid md:grid-cols-3 md:gap-4">
         {list.length && !isMore
           ? list.slice(0, 6).map((res, i) => {
-              return <Card key={i} contents={res.body} good={1} bad={1} />;
+              return (
+                <Card
+                  key={i}
+                  contents={res[0].body}
+                  good={0}
+                  bad={0}
+                  history={res[1].id}
+                />
+              );
             })
           : list.map((res, i) => {
-              return <Card key={i} contents={res.body} good={1} bad={1} />;
+              return (
+                <Card
+                  key={i}
+                  contents={res[0].body}
+                  good={0}
+                  bad={0}
+                  history={res[1].id}
+                />
+              );
             })}
       </div>
       <div className="text-center my-10">

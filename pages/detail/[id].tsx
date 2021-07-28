@@ -1,12 +1,40 @@
 import React from "react";
 import { Layout } from "/components/layout";
-export default function detail() {
+import fb from "/lib/firebase";
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+export async function getStaticProps({ params }: Params) {
+  const ref = fb.firestore().collection("board").doc(params.id).get();
+  const lists = [];
+  await ref.then((res) => {
+    lists.push({ name: res.data().name, body: res.data().body });
+  });
+
+  return {
+    props: {
+      lists,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
+}
+
+export default function Id({ lists }) {
   return (
     <Layout>
       <div className="h-screen m-auto w-9/12 mt-20">
-        <div className="card p-20">
+        <div className="card md:p-20">
           <div className="card-content">
-            <p>勉強を親から急かされるのは人権の侵害ですか？</p>
+            <p>{lists[0].body}</p>
           </div>
           <div className="m-auto flex">
             <div className="card-action">
