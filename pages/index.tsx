@@ -25,16 +25,7 @@ export default function Index() {
       <div className="flex flex-wrap m-auto w-full justify-center gap-4 ">
         {list.length &&
           list.slice(0, 6).map((res, i) => {
-            return (
-              <Card
-                key={i}
-                votes={1}
-                comments={1}
-                contents={res.body}
-                good={1}
-                bad={1}
-              />
-            );
+            return <Card key={i} contents={res.body} good={1} bad={1} />;
           })}
       </div>
       <div className="text-center my-10">
