@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 
 export type firebasePostContents = {
   name: string;
+  bad: number;
+  good: number;
   body: string;
   createdAt: firebase.firestore.Timestamp;
 };
@@ -19,6 +21,8 @@ export default function Home() {
       name,
       body,
       createdAt: firebase.firestore.Timestamp.now(),
+      bad: 0,
+      good: 0,
     };
     if (name && body) {
       fb.firestore().collection("board").add(boardContents);

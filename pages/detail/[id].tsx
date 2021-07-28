@@ -74,17 +74,19 @@ export default function Id({ lists, id }) {
 
   return (
     <Layout>
-      <div className=" m-auto w-9/12 mt-20">
+      <div className="m-auto w-full px-4 mt-20">
         <div className="card md:p-20">
           <div className="card-content">
             <p>{lists && lists[0].body}</p>
           </div>
-          <div className="m-auto flex">
+          <div className="m-auto flex ">
             <div className="card-action" onClick={() => setModalVisible(true)}>
               <a>答える</a>
             </div>
           </div>
         </div>
+      </div>
+      <div className="bg-gray-200 w-full px-4 py-6">
         <h2>回答</h2>
         {replys.map((res, i) => {
           return (

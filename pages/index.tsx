@@ -3,48 +3,57 @@ import { Layout } from "/components/layout";
 import fb from "/lib/firebase";
 import firebase from "firebase";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-export default function Index() {
-  const [list, setList] = useState<firebase.firestore.DocumentData>([]);
-  const [isMore, setIsmore] = useState(false);
-  let postList = [];
+import { useState } from "react";
 
-  useEffect(() => {
-    fb.firestore()
-      .collection("board")
-      .orderBy("createdAt", "desc")
-      .onSnapshot((res) => {
-        res.forEach((t) => {
-          postList.push([t.data(), { id: t.id }]);
-        });
-        setList(postList);
+export async function getStaticProps() {
+  let postList = [];
+  const ref = fb.firestore().collection("board").orderBy("createdAt", "desc");
+  await ref.get().then((res) => {
+    res.forEach((t) => {
+      postList.push({
+        name: t.data().name,
+        id: t.id,
+        body: t.data().body,
+        good: t.data()?.good,
+        bad: t.data()?.bad,
       });
-  }, []);
+    });
+  });
+
+  return {
+    props: { postList },
+    revalidate: 10,
+  };
+}
+
+export default function Index({ postList }) {
+  const [isMore, setIsmore] = useState(false);
 
   return (
     <Layout>
       <h5 className="text-center font-bold py-14">しつもんいちらん</h5>
       <div className="md:grid md:grid-cols-3 md:gap-4">
-        {list.length && !isMore
-          ? list.slice(0, 6).map((res, i) => {
+        {postList.length && !isMore
+          ? postList.slice(0, 6).map((res, i) => {
+              console.log(res);
               return (
                 <Card
                   key={i}
-                  contents={res[0].body}
-                  good={0}
-                  bad={0}
-                  history={res[1].id}
+                  contents={res.body}
+                  good={res?.good ? res?.good : 0}
+                  bad={res?.bad ? res?.bad : 0}
+                  history={res.id}
                 />
               );
             })
-          : list.map((res, i) => {
+          : postList.map((res, i) => {
               return (
                 <Card
                   key={i}
-                  contents={res[0].body}
-                  good={0}
-                  bad={0}
-                  history={res[1].id}
+                  contents={res.body}
+                  good={res?.good ? res?.good : 0}
+                  bad={res?.bad ? res?.bad : 0}
+                  history={res.id}
                 />
               );
             })}
