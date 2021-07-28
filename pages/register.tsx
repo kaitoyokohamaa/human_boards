@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <h2 className="text-center font-bold">新規コメント</h2>
+      <h2 className="text-center font-bold">コメント</h2>
       <div className="m-auto max-w-md py-14 px-8 bg-white shadow-lg rounded-lg my-20">
         <div className="input-field col s6">
           <input
