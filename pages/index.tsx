@@ -3,38 +3,34 @@ import { Layout } from "/components/layout";
 import fb from "/lib/firebase";
 import firebase from "firebase";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export async function getStaticProps() {
+export default function Index() {
+  const [isMore, setIsmore] = useState(false);
+  const [lists, setLists] = useState<firebase.firestore.DocumentData>();
   let postList = [];
   const ref = fb.firestore().collection("board").orderBy("createdAt", "desc");
-  await ref.get().then((res) => {
-    res.forEach((t) => {
-      postList.push({
-        name: t.data().name,
-        id: t.id,
-        body: t.data().body,
-        good: t.data()?.good,
-        bad: t.data()?.bad,
+  useEffect(() => {
+    ref.onSnapshot((res) => {
+      res.forEach((t) => {
+        postList.push({
+          name: t.data().name,
+          id: t.id,
+          body: t.data().body,
+          good: t.data()?.good,
+          bad: t.data()?.bad,
+        });
       });
+      setLists(postList);
     });
-  });
-
-  return {
-    props: { postList },
-    revalidate: 10,
-  };
-}
-
-export default function Index({ postList }) {
-  const [isMore, setIsmore] = useState(false);
+  }, [postList]);
 
   return (
     <Layout>
       <h5 className="text-center font-bold py-14">しつもんいちらん</h5>
       <div className="md:grid md:grid-cols-3 md:gap-4">
-        {postList.length && !isMore
-          ? postList.slice(0, 6).map((res, i) => {
+        {lists?.length && !isMore
+          ? lists.slice(0, 6).map((res, i) => {
               console.log(res);
               return (
                 <Card
@@ -46,7 +42,7 @@ export default function Index({ postList }) {
                 />
               );
             })
-          : postList.map((res, i) => {
+          : lists?.map((res, i) => {
               return (
                 <Card
                   key={i}
