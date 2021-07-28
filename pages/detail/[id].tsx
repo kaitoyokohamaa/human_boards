@@ -85,6 +85,7 @@ export default function Id({ lists, id }) {
             </div>
           </div>
         </div>
+        <h2>回答</h2>
         {replys.map((res, i) => {
           return (
             <div className="card" key={i}>
@@ -100,7 +101,7 @@ export default function Id({ lists, id }) {
         title="質問に回答する"
         visible={modalVisible}
         onCancel={() => setModalVisible(false)}
-        width="40%"
+        width="100%"
         footer={[
           <Button key="back" onClick={() => setModalVisible(false)}>
             キャンセル
@@ -110,7 +111,7 @@ export default function Id({ lists, id }) {
           </Button>,
         ]}
       >
-        <div className="m-auto max-w-md py-14 px-8 bg-white shadow-lg rounded-lg my-20 w-9/12">
+        <div className="m-auto max-w-md py-14 px-8 bg-white shadow-lg rounded-lg my-20 w-full">
           <div className="input-field ">
             <input
               placeholder="じんけんさん"
