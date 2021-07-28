@@ -1,12 +1,14 @@
 import { Layout } from "/components/layout";
-import firebase from "/lib/firebase";
-import "firebase/auth";
-import "firebase/firestore";
+import fb from "/lib/firebase";
+
+import firebase from "firebase";
 import { useState } from "react";
 import { useRouter } from "next/router";
+
 export type firebasePostContents = {
   name: string;
   body: string;
+  createdAt: firebase.firestore.Timestamp;
 };
 export default function Home() {
   const [name, setName] = useState("");
@@ -17,9 +19,10 @@ export default function Home() {
     const boardContents: firebasePostContents = {
       name,
       body,
+      createdAt: firebase.firestore.Timestamp.now(),
     };
     if (name && body) {
-      firebase.firestore().collection("board").add(boardContents);
+      fb.firestore().collection("board").add(boardContents);
       setBody("");
       setName("");
       router.push("/");
@@ -55,7 +58,7 @@ export default function Home() {
         </div>
         <div className="text-center my-10">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-pink-5 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => handleOk()}
           >
             投稿する
